@@ -8,12 +8,10 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.ToString;
 
 @Setter
 @Getter
 @Builder
-@ToString
 @NoArgsConstructor
 @AllArgsConstructor
 public class Cliente {
@@ -27,10 +25,16 @@ public class Cliente {
 	
 	public boolean equals(Cliente c) {
 		return this.idCliente == c.getIdCliente()
-			&& this.getDni() == c.getDni();
+				&& this.getDni() == c.getDni();
 	}
 
 	public boolean agregarPrestamo(Prestamo p) {
 		return prestamos.add(p);
+	}
+
+	@Override
+	public String toString() {
+		return "Cliente [idCliente=" + idCliente + ", apellido=" + apellido + ", nombre=" + nombre + ", dni=" + dni
+				+ ", fechaDeNacimiento=" + fechaDeNacimiento + ", baja=" + baja + ", prestamos=" + prestamos + "]";
 	}
 }
